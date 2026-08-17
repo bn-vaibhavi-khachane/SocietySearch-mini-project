@@ -1,0 +1,7 @@
+<Solution>
+  <Project Path="societysearch.client/societysearch.client.esproj">
+    <Build />
+    <Deploy />
+  </Project>
+  <Project Path="SocietySearch.Server/SocietySearch.Server.csproj" />
+</Solution>

@@ -1,0 +1,6 @@
+@societysearch.Server_HostAddress = http://localhost:5245
+
+GET {{societysearch.Server_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
