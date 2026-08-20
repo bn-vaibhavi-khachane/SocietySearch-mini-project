@@ -1,7 +1,10 @@
+using System.ComponentModel.DataAnnotations;
+
 namespace SocietySearch.Server.Model.DTO
 {
     public class AddAmenitiesDto
     {
-        public string Name { get; set; }
+        [Required]
+        public string Name { get; set; } = string.Empty;
     }
 }

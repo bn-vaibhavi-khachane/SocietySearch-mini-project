@@ -6,6 +6,7 @@ using Microsoft.OpenApi;
 using NZWalks.API.Repositories;
 using SocietySearch.Server.Data;
 using SocietySearch.Server.Mappings;
+using SocietySearch.Server.Middelware;
 using SocietySearch.Server.Repositories;
 using System.Text;
 
@@ -104,6 +105,8 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
+
+app.UseMiddleware<ExceptionHandlerMiddleware>();
 
 app.UseAuthentication();
 
