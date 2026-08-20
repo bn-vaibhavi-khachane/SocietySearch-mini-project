@@ -8,12 +8,12 @@ namespace SocietySearch.Server.Model.Domain
         public Guid SocietyId { get; set; }
         [AllowedValues("1 BHK", "2 BHK", "3 BHK", "4 BHK", "Penthouse", "Studio")]
         
-        public string Type { get; set; }
+        public string Type { get; set; } = string.Empty;
         public int AvailableUnits { get; set; }
         public bool AvailabilityStatus { get; set; }
 
         //Navigation Property
-        public Society Society { get; set; }
+        public Society Society { get; set; } = null!;
     }
     
 
