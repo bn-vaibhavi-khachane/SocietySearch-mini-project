@@ -13,6 +13,9 @@ namespace SocietySearch.Server.Mappings
             CreateMap<Society, AddSocietyRequestDto>().ReverseMap();
             CreateMap<Society, UpdateSocietyRequestDto>().ReverseMap();
             CreateMap<Amenities, AddAmenitiesDto>().ReverseMap();
+            CreateMap<Units, UnitDto>().ReverseMap();
+            CreateMap<Units, AddUnitRequestDto>().ReverseMap();
+            CreateMap<Units, UpdateUnitRequestDto>().ReverseMap();
         }
     }
 }

@@ -43,6 +43,7 @@ options.UseSqlServer(builder.Configuration.GetConnectionString("SocietySearchAut
 
 builder.Services.AddScoped<ISocietyRepository, SQLSocietyRepository>();
 builder.Services.AddScoped<IAmenitiesRepository, SQLAmenitiesRepository>();
+builder.Services.AddScoped<IUnitsRepository, SQLUnitsRepository>();
 builder.Services.AddScoped<TokenRepository>();
 
 //Identity
