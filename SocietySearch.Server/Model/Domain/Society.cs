@@ -13,5 +13,7 @@
 
         // Ids of amenities associated with this society, stored as JSON
         public List<Guid?> AmenityIds { get; set; }
+        public string ManagerId { get; set; } = string.Empty;
+        public Manager Manager { get; set; } = null!;
     }
 }
