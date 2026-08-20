@@ -20,6 +20,11 @@ namespace SocietySearch.Server.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Units>()
+                .ToTable("Units", tableBuilder => tableBuilder.HasCheckConstraint(
+                    "CK_Units_Type_AllowedValues",
+                    "[Type] IN ('1 BHK', '2 BHK', '3 BHK', '4 BHK', 'Penthouse', 'Studio')"));
+
             modelBuilder.Entity<Society>()
                 .Property(s => s.AmenityIds)
                 .HasConversion(

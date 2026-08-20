@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocietySearch.Server.Data;
 
@@ -11,9 +12,11 @@ using SocietySearch.Server.Data;
 namespace SocietySearch.Server.Migrations
 {
     [DbContext(typeof(SocietySearchDbContext))]
-    partial class SocietySearchDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260817073617_UpdatedColumnName")]
+    partial class UpdatedColumnName
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -108,6 +111,10 @@ namespace SocietySearch.Server.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.PrimitiveCollection<string>("SocietyLogoUrl")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<string>("Summary")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -129,15 +136,15 @@ namespace SocietySearch.Server.Migrations
                     b.Property<bool>("AvailabilityStatus")
                         .HasColumnType("bit");
 
-                    b.Property<int>("AvailableUnits")
-                        .HasColumnType("int");
-
                     b.Property<Guid>("SocietyId")
                         .HasColumnType("uniqueidentifier");
 
                     b.Property<string>("Type")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UnitNumber")
+                        .HasColumnType("int");
 
                     b.HasKey("Id");
 

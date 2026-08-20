@@ -38,8 +38,7 @@ export default function AddSociety({ open, onClose, onAdd }) {
     managerEmail: '',
     managerContactNumber: '',
     availableUnits: '',
-    totalUnits: '',
-    availabilityStatus: 'available',
+    availabilityStatus: true,
     establishmentYear: '',
     availableUnitTypes: [],
     amenities: [],
@@ -161,8 +160,8 @@ export default function AddSociety({ open, onClose, onAdd }) {
                   onChange={handleChange}
                   label="Unit Availability Status"
                 >
-                  <MenuItem value="available">Available</MenuItem>
-                  <MenuItem value="not_available">Occupied</MenuItem>
+                  <MenuItem value={true}>Available</MenuItem>
+                  <MenuItem value={false}>Occupied</MenuItem>
                 </Select>
               </FormControl>
               <TextField
@@ -181,16 +180,6 @@ export default function AddSociety({ open, onClose, onAdd }) {
                   name="availableUnits"
                   type="number"
                   value={society.availableUnits}
-                  onChange={handleChange}
-                  inputProps={{ min: 0 }}
-                  required
-                  fullWidth
-                />
-                <TextField
-                  label="Total Units"
-                  name="totalUnits"
-                  type="number"
-                  value={society.totalUnits}
                   onChange={handleChange}
                   inputProps={{ min: 0 }}
                   required
