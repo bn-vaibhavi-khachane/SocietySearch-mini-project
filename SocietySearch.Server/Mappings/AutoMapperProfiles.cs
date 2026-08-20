@@ -9,6 +9,9 @@ namespace SocietySearch.Server.Mappings
         public AutoMapperProfiles()
         {
             CreateMap<Amenities, AmenitiesDto>().ReverseMap();
+            CreateMap<Society, SocietyDto>().ReverseMap();
+            CreateMap<Society, AddSocietyRequestDto>().ReverseMap();
+            CreateMap<Society, UpdateSocietyRequestDto>().ReverseMap();
         }
     }
 }

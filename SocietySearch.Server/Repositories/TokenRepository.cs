@@ -45,7 +45,7 @@ namespace SocietySearch.Server.Repositories
                 issuer: configuration["Jwt:Issuer"],
                 audience: configuration["Jwt:Audience"],
                 claims: claims,
-                expires: DateTime.UtcNow.AddMinutes(1),
+                expires: DateTime.UtcNow.AddHours(1),
                 signingCredentials: credentials                
                 );
             return new JwtSecurityTokenHandler().WriteToken(token);
