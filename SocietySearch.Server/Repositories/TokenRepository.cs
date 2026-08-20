@@ -35,6 +35,8 @@ namespace SocietySearch.Server.Repositories
                    )
            };
 
+            claims.AddRange(Roles.Select(role => new Claim(ClaimTypes.Role, role)));
+
             var key = new SymmetricSecurityKey(
                 Encoding.UTF8.GetBytes(
                     configuration["Jwt:Key"]!

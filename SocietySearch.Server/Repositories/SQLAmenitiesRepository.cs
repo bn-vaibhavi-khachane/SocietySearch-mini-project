@@ -16,6 +16,11 @@ namespace SocietySearch.Server.Repositories
             return await _dbContext.Amenities.ToListAsync();
         }
 
+        public async Task<Amenities?> GetAmenityByIdAsync(Guid id)
+        {
+            return await _dbContext.Amenities.FirstOrDefaultAsync(amenity => amenity.Id == id);
+        }
+
         public async Task<List<Guid>> GetMissingAmenityIdsAsync(IEnumerable<Guid> amenityIds)
         {
             var requestedIds = amenityIds.Distinct().ToList();
@@ -25,6 +30,19 @@ namespace SocietySearch.Server.Repositories
                 .ToListAsync();
 
             return requestedIds.Except(existingIds).ToList();
+        }
+
+        public async Task<Amenities> CreateAmenityAsync(Amenities amenity)
+        {
+            await _dbContext.Amenities.AddAsync(amenity);
+            await _dbContext.SaveChangesAsync();
+            return amenity;
+        }
+
+        public async Task DeleteAmenityAsync(Amenities amenity)
+        {
+            _dbContext.Amenities.Remove(amenity);
+            await _dbContext.SaveChangesAsync();
         }
     }
 }
