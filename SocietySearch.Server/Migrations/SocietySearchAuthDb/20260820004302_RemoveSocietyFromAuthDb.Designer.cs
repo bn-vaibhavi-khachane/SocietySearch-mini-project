@@ -3,6 +3,7 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using SocietySearch.Server.Data;
 
@@ -11,9 +12,11 @@ using SocietySearch.Server.Data;
 namespace SocietySearch.Server.Migrations.SocietySearchAuthDb
 {
     [DbContext(typeof(SocietySearchAuthDbContext))]
-    partial class SocietySearchAuthDbContextModelSnapshot : ModelSnapshot
+    [Migration("20260820004302_RemoveSocietyFromAuthDb")]
+    partial class RemoveSocietyFromAuthDb
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

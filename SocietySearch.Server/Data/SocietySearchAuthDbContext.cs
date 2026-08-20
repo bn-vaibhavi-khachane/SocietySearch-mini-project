@@ -14,11 +14,9 @@ namespace SocietySearch.Server.Data
         protected override void OnModelCreating(ModelBuilder builder)
         {
             base.OnModelCreating(builder);
-            builder.Entity<Society>()
-                .HasOne(s => s.Manager)
-                .WithMany(m => m.Societies)
-                .HasForeignKey(s => s.ManagerId)
-                .OnDelete(DeleteBehavior.Restrict);
+            // Society lives in the separate main database; it must not be mapped as an entity here.
+            builder.Entity<Manager>().Ignore(m => m.Societies);
+
             var managerRoleId = "a2ee0a60-5a52-4946-b166-6a2f4c7dc6fd";
             builder.Entity<IdentityRole>()
                 .HasData(

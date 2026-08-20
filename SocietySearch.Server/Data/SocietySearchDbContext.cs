@@ -20,6 +20,9 @@ namespace SocietySearch.Server.Data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            // Manager lives in the separate Auth database; keep ManagerId as a plain column here, no cross-database FK/table.
+            modelBuilder.Entity<Society>().Ignore(s => s.Manager);
+
             modelBuilder.Entity<Units>()
                 .ToTable("Units", tableBuilder => tableBuilder.HasCheckConstraint(
                     "CK_Units_Type_AllowedValues",

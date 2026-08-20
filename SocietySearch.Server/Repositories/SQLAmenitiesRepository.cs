@@ -15,5 +15,16 @@ namespace SocietySearch.Server.Repositories
         {
             return await _dbContext.Amenities.ToListAsync();
         }
+
+        public async Task<List<Guid>> GetMissingAmenityIdsAsync(IEnumerable<Guid> amenityIds)
+        {
+            var requestedIds = amenityIds.Distinct().ToList();
+            var existingIds = await _dbContext.Amenities
+                .Where(amenity => requestedIds.Contains(amenity.Id))
+                .Select(amenity => amenity.Id)
+                .ToListAsync();
+
+            return requestedIds.Except(existingIds).ToList();
+        }
     }
 }
